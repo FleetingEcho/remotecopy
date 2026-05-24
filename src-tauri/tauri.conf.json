@@ -4,9 +4,9 @@
   "identifier": "com.remotecopy.gui",
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "http://127.0.0.1:3000",
-    "beforeDevCommand": "npm run dev",
-    "beforeBuildCommand": "npm run build"
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeDevCommand": "bun run dev",
+    "beforeBuildCommand": "bun run build"
   },
   "app": {
     "windows": [
