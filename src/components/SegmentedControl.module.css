@@ -1,0 +1,30 @@
+.control {
+  display: inline-flex;
+  border-radius: 8px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 2px;
+  gap: 2px;
+}
+
+.btn {
+  padding: 5px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--t3);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  color: var(--t1);
+}
+
+.btn.active {
+  background: var(--accent);
+  color: var(--accent-text, #fff);
+}

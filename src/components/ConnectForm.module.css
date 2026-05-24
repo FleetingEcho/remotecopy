@@ -1,0 +1,349 @@
+.pane {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  gap: 16px;
+}
+
+/* ── Status bar (IP chips) ─────────────────────────── */
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.statusLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--t4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}
+
+.ipChip {
+  padding: 3px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--t2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ipChip:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+/* ── Connection card ───────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s;
+}
+.card:has(.connectBtn:hover) {
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Status capsule ────────────────────────────────── */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.capsule.on  { background: var(--pill-on-bg);   color: var(--pill-on-fg); }
+.capsule.off { background: var(--pill-off-bg);  color: var(--pill-off-fg); }
+.capsule.busy{ background: var(--pill-busy-bg); color: var(--pill-busy-fg); }
+.capsule.err { background: var(--pill-err-bg);  color: var(--pill-err-fg); }
+
+/* ── Backend info row ─────────────────────────────── */
+.backendRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 8px 12px;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+}
+.backendLabel { color: var(--t4); min-width: 80px; font-size: 12px; }
+.backendValue { color: var(--t1); font-weight: 600; font-size: 13px; }
+.imageWarn {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--pill-busy-fg);
+  cursor: help;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--pill-busy-bg);
+}
+
+.noneHint {
+  font-size: 12px;
+  color: var(--t4);
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  padding: 8px 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* ── Fields grid ───────────────────────────────────── */
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Host + Port in a responsive 2-col row */
+.hostPortRow {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 10px;
+}
+
+.fieldGrow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldPort {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldFull {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subLabel {
+  font-size: 11px;
+  color: var(--t5);
+  font-style: italic;
+}
+
+/* ── Inputs ────────────────────────────────────────── */
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-input);
+  color: var(--t1);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input::placeholder {
+  color: var(--t6);
+  font-size: 13px;
+}
+input:focus {
+  border-color: var(--accent);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Checkbox row ──────────────────────────────────── */
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--t2);
+  cursor: pointer;
+  padding: 2px 0;
+}
+.checkRow input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* ── Private key row ───────────────────────────────── */
+.rowInput {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.rowInput input {
+  flex: 1;
+}
+
+.browseBtn {
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-hover);
+  color: var(--t2);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.browseBtn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.browseBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.keyOk {
+  color: var(--pill-on-fg);
+  font-weight: 700;
+  font-size: 16px;
+}
+.keyBad {
+  color: var(--pill-err-fg);
+  font-weight: 700;
+  font-size: 16px;
+}
+.keyChecking {
+  color: var(--t4);
+  font-size: 16px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── Actions ───────────────────────────────────────── */
+.actions { margin-top: 2px; }
+
+.connectBtn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: var(--accent-text);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+.connectBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.connectBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.connectBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.disconnectBtn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--t2);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.disconnectBtn:hover {
+  border-color: var(--pill-err-fg);
+  color: var(--pill-err-fg);
+  background: var(--pill-err-bg);
+}
+
+/* ── Error ─────────────────────────────────────────── */
+.error {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--pill-err-bg);
+  color: var(--pill-err-fg);
+  font-size: 13px;
+  border: 1px solid color-mix(in srgb, var(--pill-err-fg) 20%, transparent);
+}
+
+/* ── Hint ──────────────────────────────────────────── */
+.hint {
+  font-size: 12px;
+  color: var(--t5);
+  line-height: 1.5;
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  border: 1px dashed var(--border);
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .pane {
+    padding: 12px;
+    gap: 12px;
+  }
+  .card {
+    padding: 16px;
+    gap: 14px;
+  }
+  .hostPortRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .statusBar {
+    padding: 8px 12px;
+  }
+  .capsule {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+}

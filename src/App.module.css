@@ -1,0 +1,156 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+  height: 52px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  flex: 0 0 auto;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brandIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.brandName {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--t1);
+  letter-spacing: -0.02em;
+}
+
+/* ── Nav tabs ─────────────────────────────────────────── */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--nav-tab);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: var(--bg-hover);
+  color: var(--t2);
+}
+
+.tabIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.tabLabel {
+  line-height: 1;
+}
+
+.activeTab {
+  color: var(--nav-active) !important;
+  background: var(--bg-hover);
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.statusDot {
+  font-size: 10px;
+  line-height: 1;
+  margin-left: 2px;
+  transition: color 0.3s ease;
+}
+
+/* ── Content ──────────────────────────────────────────── */
+
+.content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Each tab panel is centered with a max-width so the UI
+   doesn't stretch awkwardly on wide screens.             */
+.tabPanel {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+
+@media (max-width: 520px) {
+  .header {
+    padding: 0 12px;
+    gap: 10px;
+    height: 48px;
+  }
+  .brandName {
+    font-size: 14px;
+  }
+  .tab {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .tabIcon {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .tabLabel {
+    display: none;
+  }
+  .brandName {
+    display: none;
+  }
+}

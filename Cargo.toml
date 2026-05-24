@@ -1,0 +1,4 @@
+[workspace]
+# src-tauri is a Tauri app — build with `bun run tauri build`
+exclude = ["src-tauri"]
+resolver = "2"

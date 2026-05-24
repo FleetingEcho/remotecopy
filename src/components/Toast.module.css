@@ -1,0 +1,72 @@
+.container {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  pointer-events: none;
+  width: auto;
+  max-width: 90vw;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  pointer-events: all;
+  cursor: pointer;
+  animation: dropIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: var(--shadow-md);
+  transition: opacity 0.2s, transform 0.2s;
+  min-width: 200px;
+  max-width: 400px;
+}
+.toast:hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.text {
+  background: var(--pill-on-bg);
+  color: var(--pill-on-fg);
+  border: 1px solid color-mix(in srgb, var(--pill-on-fg) 25%, transparent);
+}
+
+.image {
+  background: var(--badge-img-bg);
+  color: var(--badge-img-fg);
+  border: 1px solid color-mix(in srgb, var(--badge-img-fg) 25%, transparent);
+}
+
+.icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.msg {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
